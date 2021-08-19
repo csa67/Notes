@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notesroomdb.MyApplication
@@ -17,7 +18,7 @@ import com.example.notesroomdb.viewmodel.ViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding:ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     private val noteViewModel: NotesViewModel by lazy{
         ViewModelProvider(this, ViewModelFactory((application as MyApplication).repository)).get(NotesViewModel::class.java)
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
         setupUI()
         title = "Notes"
+
 
     }
 
@@ -47,7 +49,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
         rv.adapter = adapter
-        rv.layoutManager = LinearLayoutManager(applicationContext)
+            val layoutManager = GridLayoutManager(applicationContext,2)
+        rv.layoutManager = layoutManager
          }
 
         noteViewModel.notesList.observe(this, {note ->
