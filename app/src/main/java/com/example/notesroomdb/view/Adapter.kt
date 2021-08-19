@@ -29,9 +29,19 @@ class Adapter(private var notesList: List<Note>): RecyclerView.Adapter<Adapter.V
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val note = notesList[position]
 
-        holder.title.text = note.title
-        holder.message.text = note.message
+        //Title
+        if(note.title.isNotEmpty()) {
+            holder.title.text = note.title
+        }else{
+            holder.title.text = " "
+        }
 
+        //Message
+        if(note.message.isNotEmpty()) {
+            holder.message.text = note.message
+        }else{
+            holder.message.text = " "
+        }
     }
 
     override fun getItemCount(): Int {
