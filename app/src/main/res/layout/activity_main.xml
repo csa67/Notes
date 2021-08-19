@@ -18,15 +18,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAddNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="+"
-        android:textColor="@color/black"
+        android:contentDescription="@string/Add"
         app:backgroundTint = "@color/Orange"
-        android:textStyle="bold"
-        android:textSize="20sp"
+        android:src="@drawable/ic_add_foreground"
+        android:layout_margin="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
