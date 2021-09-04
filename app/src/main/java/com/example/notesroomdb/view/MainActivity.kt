@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.notesroomdb.MyApplication
 import com.example.notesroomdb.R
 import com.example.notesroomdb.databinding.ActivityMainBinding
@@ -49,7 +50,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
         rv.adapter = adapter
-            val layoutManager = GridLayoutManager(applicationContext,2)
+            //val layoutManager = GridLayoutManager(applicationContext,2)
+            val layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         rv.layoutManager = layoutManager
          }
 
